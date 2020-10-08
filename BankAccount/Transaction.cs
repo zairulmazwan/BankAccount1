@@ -10,19 +10,6 @@ namespace BankAccount
         public double deposit { get; set; }
         public double withdrawal { get; set; }
 
-        /*
-        public void Deposit(int acc, double deposit)
-        {
-            this.accountNumber = accountNumber;
-            this.deposit = deposit;ce\Repos
-        }
-
-        public void Withdrawal(int acc,double wdrawal)
-        {
-            this.accountNumber = accountNumber;
-            this.withdrawal = wdrawal;
-        }
-
-    */
+       
     }
 }
