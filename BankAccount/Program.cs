@@ -150,7 +150,7 @@ namespace BankAccount
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("You dont have sufficient balance to withdraw");
+                Console.WriteLine("You dont have a sufficient balance to withdraw");
             }
             Console.ForegroundColor = ConsoleColor.White;
 
