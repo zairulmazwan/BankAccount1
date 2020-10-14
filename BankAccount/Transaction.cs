@@ -6,7 +6,7 @@ namespace BankAccount
 {
     class Transaction
     {
-        public int accountNumber { get; set; }
+        public string accountNumber { get; set; }
         public double deposit { get; set; }
         public double withdrawal { get; set; }
 

@@ -7,7 +7,7 @@ namespace BankAccount
     class BankAccount
     {
 
-        public int AccountNumber { get; set; }
+        public string AccountNumber { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public double Balance { get; set; }
@@ -22,13 +22,16 @@ namespace BankAccount
 
         }
 
-        public int GetAccountNumber ()
+        public string GetAccountNumber ()
         {
 
             System.Random random = new System.Random();
             int AccNum= random.Next(10000,99999);
+            string productCode = "55";
 
-            return AccNum;
+            productCode += Convert.ToString(AccNum);
+
+            return productCode;
         }
 
     }

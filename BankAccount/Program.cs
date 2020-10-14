@@ -161,10 +161,8 @@ namespace BankAccount
 
         public static void Menu_4()
         {
-
             Console.WriteLine("Input account for balance :");
-            string val = Console.ReadLine();
-            int accNum = Convert.ToInt32(val);
+            string accNum = Console.ReadLine();
 
             string fName=null;
             string lName=null;
@@ -191,8 +189,6 @@ namespace BankAccount
             {
                 Console.WriteLine("Record not found!" + "\n");
             }
-           
-
         }
 
         public static void Menu_5()
@@ -200,19 +196,25 @@ namespace BankAccount
             Console.WriteLine("\n:: View Transaction History ::\n");
             int accNumberIndex = searchAccount(); //search an account number and return the index
 
-            int accNumber = AccountRecords[accNumberIndex].AccountNumber;
-
-            Console.WriteLine("Transaction History : \n");
-            Console.WriteLine("Deposit\t\t\tWithdrawal");
-            foreach (var record in TransactionRecords)
+            if (accNumberIndex !=-1)
             {
-                if (record.accountNumber == accNumber)
-                {
-                    Console.WriteLine(record.deposit+"\t\t\t"+ record.withdrawal + "\n");
-                }
-            }
+                string accNumber = AccountRecords[accNumberIndex].AccountNumber;
 
-            Console.WriteLine("Account Balance : "+ AccountRecords[accNumberIndex].Balance +"\n");
+                Console.WriteLine("Transaction History : \n");
+                Console.WriteLine("Deposit\t\t\tWithdrawal");
+                foreach (var record in TransactionRecords)
+                {
+                    if (record.accountNumber == accNumber)
+                    {
+                        Console.WriteLine(record.deposit + "\t\t\t" + record.withdrawal + "\n");
+                    }
+                }
+                Console.WriteLine("Account Balance : " + AccountRecords[accNumberIndex].Balance + "\n");
+            }
+            else
+            {
+                Console.WriteLine("Record not found!");
+            } 
         }
 
         public static void Menu_7()
@@ -238,13 +240,8 @@ namespace BankAccount
             int index=-1;
 
             Console.WriteLine("Input account number :");
-            string val = Console.ReadLine();
-            int accNum = Convert.ToInt32(val);
-
-            //string fName = null;
-            //string lName = null;
-            //double bal = 0.0;
-
+            string accNum = Console.ReadLine();
+          
             for (int i = 0; i< AccountRecords.Count; i++)
             {
                if (AccountRecords[i].AccountNumber==accNum)
