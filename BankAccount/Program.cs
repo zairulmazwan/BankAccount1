@@ -227,11 +227,11 @@ namespace BankAccount
         public static void Menu_6 ()
         {
             Console.WriteLine("\n:: Lis of Accounts ::\n");
-            Console.WriteLine("Account Number\t\t\tAccount Holder\t\t\t\t\t\tBalance");
+            Console.WriteLine("Account Number\t\t\tAccount Holder\t\t\t\tBalance");
 
             foreach (var acc in AccountRecords)
             {
-                Console.WriteLine(acc.AccountNumber + "\t\t" + acc.FirstName + " " + acc.LastName + "\t\t\t\t" + acc.Balance);
+                Console.WriteLine(acc.AccountNumber + "\t\t\t\t" + acc.FirstName + " " + acc.LastName + "\t\t\t\t" + acc.Balance);
             }
         }
 
