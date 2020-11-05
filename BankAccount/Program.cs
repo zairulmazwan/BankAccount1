@@ -135,28 +135,38 @@ namespace BankAccount
 
             int accNumberIndex = searchAccount();
 
-            Console.WriteLine("Input amount to withdraw:");
-            string withdrawalString = Console.ReadLine();
-            double withdrawal = Convert.ToDouble(withdrawalString);
-
-            if (AccountRecords[accNumberIndex].Balance- withdrawal>0)
+            if (accNumberIndex!=-1)
             {
-                AccountRecords[accNumberIndex].Balance -= withdrawal;
-                Transaction newTrans = new Transaction();
-                newTrans.accountNumber = AccountRecords[accNumberIndex].AccountNumber; //getting the account number at index "accNumberIndex"
-                newTrans.withdrawal = (-withdrawal);
-                TransactionRecords.Add(newTrans);
+                Console.WriteLine("Input amount to withdraw:");
+                string withdrawalString = Console.ReadLine();
+                double withdrawal = Convert.ToDouble(withdrawalString);
+
+                if (AccountRecords[accNumberIndex].Balance - withdrawal > 0)
+                {
+                    AccountRecords[accNumberIndex].Balance -= withdrawal;
+                    Transaction newTrans = new Transaction();
+                    newTrans.accountNumber = AccountRecords[accNumberIndex].AccountNumber; //getting the account number at index "accNumberIndex"
+                    newTrans.withdrawal = (-withdrawal);
+                    TransactionRecords.Add(newTrans);
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("You dont have a sufficient balance to withdraw");
+                }
+                Console.ForegroundColor = ConsoleColor.White;
+
+
+
+                Console.WriteLine("Current balance after withdrawal :" + AccountRecords[0].Balance);
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("You dont have a sufficient balance to withdraw");
+                Console.WriteLine("Invalid Account Number!\n\n");
             }
             Console.ForegroundColor = ConsoleColor.White;
 
-
-
-            Console.WriteLine("Current balance after withdrawal :" + AccountRecords[0].Balance);
         }
 
         public static void Menu_4()
