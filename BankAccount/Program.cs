@@ -114,19 +114,28 @@ namespace BankAccount
 
             int accNumberIndex = searchAccount();
 
-            Console.WriteLine("Input deposit amount :");
-            string depositString = Console.ReadLine();
-            double deposit = Convert.ToDouble(depositString);
+            if (accNumberIndex == -1)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Account number not found!");
+            }
+            else
+            {
+                Console.WriteLine("Input deposit amount :");
+                string depositString = Console.ReadLine();
+                double deposit = Convert.ToDouble(depositString);
 
-            AccountRecords[accNumberIndex].Balance += deposit;
-            Transaction newTrans = new Transaction();
-            newTrans.accountNumber = AccountRecords[accNumberIndex].AccountNumber; //getting the account number at index "accNumberIndex"
-            newTrans.deposit = deposit;
-            TransactionRecords.Add(newTrans);
+                AccountRecords[accNumberIndex].Balance += deposit;
+                Transaction newTrans = new Transaction();
+                newTrans.accountNumber = AccountRecords[accNumberIndex].AccountNumber; //getting the account number at index "accNumberIndex"
+                newTrans.deposit = deposit;
+                TransactionRecords.Add(newTrans);
 
+                Console.WriteLine("Current balance :" + AccountRecords[0].Balance);
+            }
 
-            Console.WriteLine("Current balance :"+AccountRecords[0].Balance);
-            
+            Console.ForegroundColor = ConsoleColor.White;
+
         }
 
         public static void Menu_3()
@@ -197,8 +206,10 @@ namespace BankAccount
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Record not found!" + "\n");
             }
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         public static void Menu_5()
@@ -223,8 +234,10 @@ namespace BankAccount
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Record not found!");
-            } 
+            }
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         public static void Menu_7()
