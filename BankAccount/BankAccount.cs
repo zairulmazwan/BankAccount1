@@ -7,6 +7,7 @@ namespace BankAccount
     class BankAccount
     {
 
+        public string Id { get; set; }
         public string AccountNumber { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
